@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_clientcontactus"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="atiaf.mehany.Activity.ClientcontactusActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_blue1"
+        android:orientation="horizontal">
+        <atiaf.mehany.Customecalss.TextViewWithFont
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textSize="8pt"
+            android:textColor="@color/color_white"
+            android:text="@string/lastorder"
+            android:gravity="center"
+            android:layout_marginStart="45dp"/>
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_arrow_back_white"
+            android:id="@+id/back"
+            android:layout_marginEnd="15dp"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list"></androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

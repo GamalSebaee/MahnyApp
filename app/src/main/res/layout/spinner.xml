@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1"
+       android:orientation="horizontal">
+       <TextView
+           android:layout_width="15dp"
+           android:layout_height="wrap_content" />
+       <atiaf.mehany.Customecalss.TextViewWithFont
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:id="@+id/title"
+           android:textColor="@color/color_back_dark"
+           android:textSize="8pt"/>
+       <TextView
+           android:layout_width="15dp"
+           android:layout_height="wrap_content" />
+
+       <TextView
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"/>
+       <TextView
+           android:layout_width="24dp"
+           android:layout_height="24dp"
+           android:background="@drawable/ic_arrow_drop_down"
+           android:layout_gravity="center"/>
+       <TextView
+           android:layout_width="15dp"
+           android:layout_height="wrap_content" />
+   </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_grey"/>
+</LinearLayout>

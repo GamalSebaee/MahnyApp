@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/color_blue1"
+            android:orientation="vertical">
+
+
+
+        </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="horizontal"
+    android:layout_gravity="center|bottom">
+    <TextView
+        android:layout_width="40dp"
+        android:layout_height="wrap_content" />
+    <FrameLayout
+        android:id="@+id/edit"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/oval">
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_edit"/>
+
+    </FrameLayout>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:civ_border_color="@color/color_white"
+        app:civ_border_width="1dp"
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <FrameLayout
+        android:id="@+id/logout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/oval">
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_log_out"/>
+
+    </FrameLayout>
+    <TextView
+        android:layout_width="40dp"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+
+    </FrameLayout>
+<atiaf.mehany.Customecalss.TextViewWithFont
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/name"
+    android:layout_marginTop="10dp"
+    android:layout_gravity="center"
+    android:textSize="8pt"
+    android:textColor="@color/color_back_dark"/>
+    <atiaf.mehany.Customecalss.TextViewWithFont
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/job"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:textSize="8pt"
+        android:textColor="@color/color_back_dar"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/color_grey"/>
+    <atiaf.mehany.Customecalss.TextViewWithFont
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textSize="8pt"
+        android:text="@string/photo"
+        android:textColor="@color/color_back_dar"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list"
+        android:layout_marginTop="10dp"></androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

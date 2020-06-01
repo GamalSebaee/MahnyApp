@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/lintechbical"
+    android:visibility="gone">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+    <Spinner
+        android:id="@+id/spintech"
+        android:background="@null"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"></Spinner>
+    <EditText
+        android:id="@+id/details"
+        android:background="@color/color_gray2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/sendorder4"
+        android:paddingStart="10dp"
+        android:gravity="top"
+        android:paddingTop="10dp"
+        android:textColorHint="@color/color_back_dar"></EditText>
+</LinearLayout>

@@ -1,0 +1,436 @@
+package atiaf.mehany.Activity;
+
+import android.Manifest;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RatingBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
+import atiaf.mehany.Customecalss.TextViewWithFont;
+import atiaf.mehany.Data.Gdata;
+import atiaf.mehany.Fragment.ClientcurrentFragment;
+import atiaf.mehany.R;
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class Clientorderdetails4Activity extends Activity {
+    TextView back;
+    TextViewWithFont ordernum, title , send;
+    RatingBar rat1 , rat2 ;
+    TextViewWithFont date;
+    TextViewWithFont loc;
+    TextViewWithFont ordertype;
+    TextViewWithFont statge;
+    TextViewWithFont subject;
+    TextViewWithFont sertype, name;
+    TextViewWithFont cancel;
+    TextViewWithFont status;
+    LinearLayout lin;
+    LinearLayout lin1;
+    LinearLayout lin2;
+    CircleImageView img;
+    TextView t1, t2, t3, t4, t5;
+    FrameLayout call;
+    String phone = "" , ra = "" , ra1 = "";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_clientorderdetails4);
+        back = (TextView) findViewById(R.id.back);
+        title = (TextViewWithFont) findViewById(R.id.title);
+        ordernum = (TextViewWithFont) findViewById(R.id.ordernum);
+        date = (TextViewWithFont) findViewById(R.id.date);
+        loc = (TextViewWithFont) findViewById(R.id.loc);
+        ordertype = (TextViewWithFont) findViewById(R.id.ordertype);
+        statge = (TextViewWithFont) findViewById(R.id.stage);
+        subject = (TextViewWithFont) findViewById(R.id.subject);
+        sertype = (TextViewWithFont) findViewById(R.id.sertype);
+        status = (TextViewWithFont) findViewById(R.id.status);
+        lin = (LinearLayout) findViewById(R.id.lin);
+        lin1 = (LinearLayout) findViewById(R.id.lin1);
+        lin2 = (LinearLayout) findViewById(R.id.lin2);
+        img = (CircleImageView) findViewById(R.id.img);
+        t1 = (TextView) findViewById(R.id.t1);
+        t2 = (TextView) findViewById(R.id.t2);
+        t3 = (TextView) findViewById(R.id.t3);
+        t4 = (TextView) findViewById(R.id.t4);
+        t5 = (TextView) findViewById(R.id.t5);
+        rat1 = (RatingBar) findViewById(R.id.rat1);
+        rat2 = (RatingBar) findViewById(R.id.rat2);
+        send = (TextViewWithFont) findViewById(R.id.send);
+        name = (TextViewWithFont) findViewById(R.id.name);
+        call = (FrameLayout) findViewById(R.id.call);
+        if (Locale.getDefault().getLanguage().equals("en")) {
+            back.setRotation(180);
+        }
+        if (ClientcurrentFragment.appsdep.get(getIntent().getIntExtra("pos",56666)).type.equals("0")){
+            title.setText(getString(R.string.detailsorder10));
+        }else {
+            title.setText(getString(R.string.detailsorder100));
+        }
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        ordernum.setText(ClientcurrentFragment.appsdep.get(getIntent().getIntExtra("pos", 444445)).ordernum);
+        date.setText(ClientcurrentFragment.appsdep.get(getIntent().getIntExtra("pos", 444445)).date);
+        loc.setText(ClientcurrentFragment.appsdep.get(getIntent().getIntExtra("pos", 444445)).loc);
+        statge.setText(ClientcurrentFragment.appsdep.get(getIntent().getIntExtra("pos", 444445)).stage);
+        subject.setText(ClientcurrentFragment.appsdep.get(getIntent().getIntExtra("pos", 444445)).subject);
+        sertype.setText(ClientcurrentFragment.appsdep.get(getIntent().getIntExtra("pos", 444445)).sertype);
+        if (ClientcurrentFragment.appsdep.get(getIntent().getIntExtra("pos", 444445)).type.equals("0")) {
+            lin.setVisibility(View.GONE);
+            lin1.setVisibility(View.GONE);
+            lin2.setVisibility(View.VISIBLE);
+            ordertype.setText(getString(R.string.main5));
+        } else {
+            lin.setVisibility(View.VISIBLE);
+            lin1.setVisibility(View.VISIBLE);
+            lin2.setVisibility(View.GONE);
+            ordertype.setText(getString(R.string.main4));
+
+        }
+        if (isNetworkAvailable()) {
+            loaddata();
+        } else {
+            Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+            t.setGravity(Gravity.CENTER, 0, 0);
+            t.show();
+        }
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_CALL);
+
+                intent.setData(Uri.parse("tel:" + phone));
+                if (ActivityCompat.checkSelfPermission(Clientorderdetails4Activity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                startActivity(intent);
+            }
+        });
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ra1.equals("") || ra.equals("")){
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast t = null;
+                            t = Toast.makeText(getApplicationContext(), getString(R.string.tr), Toast.LENGTH_LONG);
+                            t.setGravity(Gravity.CENTER, 0, 0);
+                            t.show();
+
+                        }
+                    });
+                }else {
+                    if (isNetworkAvailable()) {
+                        makeaction();
+                    } else {
+                        Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+                        t.setGravity(Gravity.CENTER, 0, 0);
+                        t.show();
+                    }
+                }
+            }
+        });
+        rat1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                ra = String.valueOf(rating);
+            }
+        });
+        rat2.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                ra1 = String.valueOf(rating);
+            }
+        });
+    }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+    public void loaddata(){
+        final ProgressDialog progressDialog = ProgressDialog.show(Clientorderdetails4Activity.this, getString(R.string.wait), getString(R.string.che), true);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Gdata.url + "get_all_action", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                //     Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+                Log.e("response ", response + "");
+
+
+                // Hide Progress Dialog
+                //progressDialog.dismiss();
+                try {
+                    // JSON Object
+                    JSONObject obj = new JSONObject(response);
+                    JSONArray jsonArray = obj.getJSONArray("data");
+                    JSONObject jo = jsonArray.getJSONObject(0);
+                    name.setText(jo.getString("first_name") + " " + jo.getString("last_name"));
+                    if (String.valueOf(jo.getInt("rate")).equals("5")){
+                        t1.setBackgroundResource(R.drawable.ic_star);
+                        t2.setBackgroundResource(R.drawable.ic_star);
+                        t3.setBackgroundResource(R.drawable.ic_star);
+                        t4.setBackgroundResource(R.drawable.ic_star);
+                        t5.setBackgroundResource(R.drawable.ic_star);
+                    }else if (String.valueOf(jo.getInt("rate")).equals("4")){
+                        t1.setBackgroundResource(R.drawable.ic_star);
+                        t2.setBackgroundResource(R.drawable.ic_star);
+                        t3.setBackgroundResource(R.drawable.ic_star);
+                        t4.setBackgroundResource(R.drawable.ic_star);
+                        t5.setBackgroundResource(R.drawable.ic_star_2);
+                    }else if (String.valueOf(jo.getInt("rate")).equals("3")){
+                        t1.setBackgroundResource(R.drawable.ic_star);
+                        t2.setBackgroundResource(R.drawable.ic_star);
+                        t3.setBackgroundResource(R.drawable.ic_star);
+                        t4.setBackgroundResource(R.drawable.ic_star_2);
+                        t5.setBackgroundResource(R.drawable.ic_star_2);
+                    }else if (String.valueOf(jo.getInt("rate")).equals("2")){
+                        t1.setBackgroundResource(R.drawable.ic_star);
+                        t2.setBackgroundResource(R.drawable.ic_star);
+                        t3.setBackgroundResource(R.drawable.ic_star_2);
+                        t4.setBackgroundResource(R.drawable.ic_star_2);
+                        t5.setBackgroundResource(R.drawable.ic_star_2);
+                    }else if (String.valueOf(jo.getInt("rate")).equals("1")){
+                        t1.setBackgroundResource(R.drawable.ic_star);
+                        t2.setBackgroundResource(R.drawable.ic_star_2);
+                        t3.setBackgroundResource(R.drawable.ic_star_2);
+                        t4.setBackgroundResource(R.drawable.ic_star_2);
+                        t5.setBackgroundResource(R.drawable.ic_star_2);
+                    }else if (String.valueOf(jo.getInt("rate")).equals("0")){
+                        t1.setBackgroundResource(R.drawable.ic_star_2);
+                        t2.setBackgroundResource(R.drawable.ic_star_2);
+                        t3.setBackgroundResource(R.drawable.ic_star_2);
+                        t4.setBackgroundResource(R.drawable.ic_star_2);
+                        t5.setBackgroundResource(R.drawable.ic_star_2);
+                    }
+                    Picasso.with(Clientorderdetails4Activity.this).load(jo.getString("img")).into(img, new Callback() {
+                        @Override
+                        public void onSuccess() {
+
+                        }
+
+                        @Override
+                        public void onError() {
+
+                        }
+
+                    });
+                    phone = jo.getString("phone");
+
+
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    // _errorMsg.setText(e.getMessage());
+
+                    e.printStackTrace();
+
+                }
+                progressDialog.dismiss();
+
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        progressDialog.dismiss();
+                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+
+                            Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+                            t.setGravity(Gravity.CENTER, 0, 0);
+                            t.show();
+                        } else if (error instanceof AuthFailureError) {
+                            //TODO
+                        } else if (error instanceof ServerError) {
+                            Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+                            t.setGravity(Gravity.CENTER, 0, 0);
+                            t.show();
+                            //TODO
+                        } else if (error instanceof NetworkError) {
+                            Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+                            t.setGravity(Gravity.CENTER, 0, 0);
+                            t.show();
+                            //TODO
+                        } else if (error instanceof ParseError) {
+                            //TODO
+                        }
+                    }
+
+                })
+
+        {
+
+            @Override
+            protected Map<String, String> getParams() {
+
+                Map<String, String> params = new HashMap<>();
+                params.put("order_id", ClientcurrentFragment.appsdep.get(getIntent().getIntExtra("pos",56666)).ordernum);
+                params.put("lang", Locale.getDefault().getLanguage());
+                Log.e("loginParams", params.toString());
+
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(30000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(stringRequest);
+    }
+    public void makeaction( ){
+        final ProgressDialog progressDialog = ProgressDialog.show(Clientorderdetails4Activity.this, getString(R.string.wait), getString(R.string.che), true);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Gdata.url+"add_rate", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                //     Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+                Log.e("response ", response + "");
+
+
+                // Hide Progress Dialog
+                //progressDialog.dismiss();
+                try {
+                    // JSON Object
+                    JSONObject obj = new JSONObject(response);
+                    if (obj.getBoolean("Success")){
+                        Intent i = new Intent(getApplicationContext(),SendorderActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
+                        finish();
+                        String msg = obj.getString("msg");
+                        Toast t = Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG);
+                        t.setGravity(Gravity.CENTER, 0, 0);
+                        t.show();
+                    }else {
+                        String msg = obj.getString("msg");
+                        Toast t = Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG);
+                        t.setGravity(Gravity.CENTER, 0, 0);
+                        t.show();
+                        Log.e("response ", msg + "");
+                    }
+                    progressDialog.dismiss();
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    // _errorMsg.setText(e.getMessage());
+
+                    e.printStackTrace();
+
+                }
+                //  progressDialog.dismiss();
+
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
+
+                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                            Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+                            t.setGravity(Gravity.CENTER, 0, 0);
+                            t.show();
+                        } else if (error instanceof AuthFailureError) {
+                            //TODO
+                        } else if (error instanceof ServerError) {
+                            Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+                            t.setGravity(Gravity.CENTER, 0, 0);
+                            t.show();
+                            //TODO
+                        } else if (error instanceof NetworkError) {
+                            Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+                            t.setGravity(Gravity.CENTER, 0, 0);
+                            t.show();
+                            //TODO
+                        } else if (error instanceof ParseError) {
+                            //TODO
+                        }
+                    }
+
+                })
+
+        {
+
+            @Override
+            protected Map<String, String> getParams() {
+
+                Map<String, String> params = new HashMap<>();
+                params.put("user_id", Gdata.user_id);
+                params.put("worker_id", ClientcurrentFragment.appsdep.get(getIntent().getIntExtra("pos",455544)).worker_id);
+                params.put("order_id",  ClientcurrentFragment.appsdep.get(getIntent().getIntExtra("pos",455544)).ordernum);
+                params.put("arriave_rate",  ra);
+                params.put("rate",  ra1);
+                params.put("lang", Locale.getDefault().getLanguage());
+                Log.e("loginParams", params.toString());
+
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(30000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(stringRequest);
+    }
+
+}

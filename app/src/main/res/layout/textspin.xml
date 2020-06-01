@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<atiaf.mehany.Customecalss.TextViewWithFont xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp"
+    android:textColor="@color/color_back_dark"
+    android:textSize="8pt"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+</atiaf.mehany.Customecalss.TextViewWithFont>

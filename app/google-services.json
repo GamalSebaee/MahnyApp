@@ -1,0 +1,972 @@
+{
+  "project_info": {
+    "project_number": "864795657533",
+    "firebase_url": "https://marey-4ac7f.firebaseio.com",
+    "project_id": "marey-4ac7f",
+    "storage_bucket": "marey-4ac7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:9941c7a4b9271e17",
+        "android_client_info": {
+          "package_name": "atiaf.mareyclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:1ce14f1863272898",
+        "android_client_info": {
+          "package_name": "atiaf.mareyclien"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:e7ae4090aeb4b58a",
+        "android_client_info": {
+          "package_name": "atiaf.mosandaclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:89956075df0b52ef",
+        "android_client_info": {
+          "package_name": "com.atiaf.mosanda_worker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:39b580bdec7fb8dc",
+        "android_client_info": {
+          "package_name": "atiaf.mosandacompany"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:28bbef2f1f46003a",
+        "android_client_info": {
+          "package_name": "atiaf.elarabidriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:ae73f93e01b5cb2a",
+        "android_client_info": {
+          "package_name": "atiaf.elarabiclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:970a69860628724d",
+        "android_client_info": {
+          "package_name": "atiaf.aramwestclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:0b703f5154392aac",
+        "android_client_info": {
+          "package_name": "atiaf.aramwest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:168be079554a62d1",
+        "android_client_info": {
+          "package_name": "atiaf.drivercompany"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:378c75e09bad7769",
+        "android_client_info": {
+          "package_name": "atiaf.supermarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:db6966305a8483df",
+        "android_client_info": {
+          "package_name": "atiaf.workercompany"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:ea30ec330253f22b",
+        "android_client_info": {
+          "package_name": "atiaf.semar_market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:9c948bb2b710b23e",
+        "android_client_info": {
+          "package_name": "atiaf.client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:b284334cd2f5511e",
+        "android_client_info": {
+          "package_name": "atiaf.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:de30c7cb9184c81c",
+        "android_client_info": {
+          "package_name": "atiaf.mandob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:9b87474e2c34c627",
+        "android_client_info": {
+          "package_name": "atiaf.company"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:a5337adcddfa9756",
+        "android_client_info": {
+          "package_name": "com.appstailors.qschool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:30545f4e66589985",
+        "android_client_info": {
+          "package_name": "com.atiafapps.maglesbalady"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:879609d259ab1d62",
+        "android_client_info": {
+          "package_name": "atiaf.mawaeidi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:a4b3da33ddfe20d4",
+        "android_client_info": {
+          "package_name": "atiaf.farasan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:5b8866a65d9511b1",
+        "android_client_info": {
+          "package_name": "atiaf.monasabat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:8e742d33862a8589",
+        "android_client_info": {
+          "package_name": "atiaf.bekala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:30acfc7e3042187c",
+        "android_client_info": {
+          "package_name": "com.atiaf.grocery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:fbfe8c6d66c7ad59",
+        "android_client_info": {
+          "package_name": "atiaf.hayak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:97f61c2823991b86",
+        "android_client_info": {
+          "package_name": "atiaf.rahatyclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:93a3370940282472",
+        "android_client_info": {
+          "package_name": "atiaf.rahatystore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:519704844488695a",
+        "android_client_info": {
+          "package_name": "atiaf.rahatydelegate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:7f64b0dc36fc6fb1",
+        "android_client_info": {
+          "package_name": "com.atiaf.waghatkateef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:8f3111de32b3935e",
+        "android_client_info": {
+          "package_name": "atiaf.samawater"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864795657533:android:fbdaad4cb79f287b",
+        "android_client_info": {
+          "package_name": "atiaf.mehany"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864795657533-64jgv9cs37obb5s9i5b63avrsqjakn0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1s76jjHgm6Rka0ZpWmRYGXU2NqjRgN-c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

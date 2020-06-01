@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/rb_services"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/radio_status"
+        android:checked="true"
+        android:enabled="false"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#3e3e3e"
+        android:textSize="16sp" />
+
+    <atiaf.mehany.Customecalss.TextViewWithFont
+        android:id="@+id/rb_servicesTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp"
+        android:text="asddasdsaasdd"
+        android:textColor="#3e3e3e"
+        android:textSize="16sp" />
+
+</LinearLayout>

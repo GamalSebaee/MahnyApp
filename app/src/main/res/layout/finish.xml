@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+<TextView
+    android:layout_width="15dp"
+    android:layout_height="wrap_content" />
+        <FrameLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ovaltech">
+            <TextView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_notifications_1"/>
+        </FrameLayout>
+        <atiaf.mehany.Customecalss.TextViewWithFont
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="@string/dialog2"
+            android:layout_gravity="center"
+            android:textSize="7pt"
+            android:textColor="@color/color_back_dark" />
+    </LinearLayout>
+    <atiaf.mehany.Customecalss.TextViewWithFont
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:text="@string/dialog3"
+        android:layout_gravity="center"
+        android:textSize="8pt"
+        android:textColor="@color/color_back_dar" />
+    <atiaf.mehany.Customecalss.TextViewWithFont
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:gravity="center"
+        android:text="@string/dialog4"
+        android:layout_gravity="end"
+        android:textSize="8pt"
+        android:id="@+id/show"
+        android:textColor="@color/color_blue" />
+</LinearLayout>

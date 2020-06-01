@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="atiaf.mehany">
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove" /> -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activity.phase2.OtherServicesActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
+
+
+        </activity>
+        <activity android:name=".Activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activity.ClientloginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.phase2.login.OtherloginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.ClientregActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.SendorderActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.WorkerloginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.WorkerregActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC6GSH0fJmVc7vADQ-DBqQcrLpaQnLxSKU" />
+
+        <activity
+            android:name=".Activity.WorkercompleteActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.WorkertabActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ClientordertabActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ClientsettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ClienteditActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <service android:name=".Service.SendLocationService" />
+        <service android:name=".Service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".Activity.ClientaboutappActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ClientuseappActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ClientcontactusActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.WorkercontactusActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.WorkeraboutappActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.WorkeruseappActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ProviderseettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.WorkereditActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.Clientdetailsstep1Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.Detailsstep2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.Clientstep3Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.WorkernotdetialsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ClientworkerprofileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.Clientorderdetails4Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.PerviousorderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ClientpasswordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.WorkerpasswordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.techerlogin"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.TeacherregActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.TeachercompleteActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.TeachertabActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.TeachercontactusActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.TeacheraboutappActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.TeacheruseappActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.TeacherseettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.TeacherpasswordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.TeachereditActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.TeachernotdetialsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.TeacherperviousorderActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>
