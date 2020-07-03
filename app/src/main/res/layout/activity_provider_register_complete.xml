@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_light_grey">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="39dp"
+                android:layout_height="wrap_content" />
+
+            <atiaf.mehany.Customecalss.TextViewWithFont
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/wreg2"
+                android:textColor="@color/color_back_dark"
+                android:textSize="10pt" />
+
+            <LinearLayout
+                android:id="@+id/lin"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_arrow_back_black" />
+
+                <TextView
+                    android:layout_width="15dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/photo"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/worker"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:id="@+id/spin"
+                    android:layout_marginTop="40dp"
+                    android:background="@null"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+            </LinearLayout>
+
+        </ScrollView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:cardBackgroundColor="@color/color_blue1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <atiaf.mehany.Customecalss.TextViewWithFont
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/preg12"
+                    android:gravity="center"
+                    android:textColor="@color/color_white"
+                    android:textSize="8pt" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+    <include android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        layout="@layout/confirm"/>
+</FrameLayout>

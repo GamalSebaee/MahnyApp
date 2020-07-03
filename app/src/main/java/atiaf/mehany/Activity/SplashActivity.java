@@ -112,10 +112,10 @@ public class SplashActivity extends Activity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Gdata.url_worker + "get_data", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+              //  response = "{\"Success\":true,\"msg\":\"Done\",\"data\":{\"user_id\":\"342\",\"img\":\"https:\\/\\/mhny.mtgofa.com\\/uploads\\/man-writing-silhouette-256x256.png\",\"first_name\":\"Good\",\"last_name\":\"Sebaee\",\"email\":\"gamal.sebaee13@gmail.com\",\"phone\":\"01025581601\",\"username\":\"eslamsamy\",\"password\":\"123r56\",\"operation\":\"2\",\"country_id\":\"2\",\"is_busy\":false,\"availabl\":true,\"all_image\":[],\"note\":[]}}";
 
                 //     Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                 Log.e("response ", response + "");
-
 
                 // Hide Progress Dialog
                 //progressDialog.dismiss();

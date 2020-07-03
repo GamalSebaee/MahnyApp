@@ -14,13 +14,6 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AlertDialog;
-
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -34,6 +27,12 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -69,7 +68,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.gson.Gson;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -89,6 +87,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import atiaf.mehany.Activity.phase2.OtherServicesActivity;
+import atiaf.mehany.Activity.phase2.ads.ActivityAdsContent;
 import atiaf.mehany.Customecalss.TextViewWithFont;
 import atiaf.mehany.Data.Country;
 import atiaf.mehany.Data.Gdata;
@@ -133,6 +132,8 @@ public class SendorderActivity extends FragmentActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sendorder);
+
+        startAdsContent();
         menu = (TextView) findViewById(R.id.menu);
         icon = (TextView) findViewById(R.id.icon);
         icon1 = (TextView) findViewById(R.id.icon1);
@@ -382,6 +383,11 @@ public class SendorderActivity extends FragmentActivity implements
         } catch (NullPointerException e) {
 
         }
+    }
+
+    private void startAdsContent() {
+        Intent intent = new Intent(this, ActivityAdsContent.class);
+        startActivity(intent);
     }
 
     public void sendLognReque() {

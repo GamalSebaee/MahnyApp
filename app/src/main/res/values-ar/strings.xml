@@ -159,4 +159,5 @@
     <string name="choose_services">اختر الخدمة</string>
     <string name="more_login">Other</string>
     <string name="other_login">Other Login</string>
+    <string name="provider_txt">Provider</string>
 </resources>

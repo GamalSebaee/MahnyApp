@@ -74,18 +74,21 @@ View v ;
             list = (RecyclerView) v.findViewById(R.id.list);
             name.setText(Gdata.worker_fname + " " + Gdata.worker_lname);
             job.setText(Gdata.worker_jobs);
-            Picasso.with(getContext()).load(Gdata.worker_img).into(img, new Callback() {
-                @Override
-                public void onSuccess() {
+            if(Gdata.worker_img != null){
+                Picasso.with(getContext()).load(Gdata.worker_img).into(img, new Callback() {
+                    @Override
+                    public void onSuccess() {
 
-                }
+                    }
 
-                @Override
-                public void onError() {
+                    @Override
+                    public void onError() {
 
-                }
+                    }
 
-            });
+                });
+            }
+
             logout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

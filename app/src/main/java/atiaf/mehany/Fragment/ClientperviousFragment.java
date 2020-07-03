@@ -109,7 +109,7 @@ public class ClientperviousFragment extends Fragment {
                             charge.status = jo.getString("title_job");
                             charge.name = jo.getString("firstname_worker") + " " + jo.getString("lastname_worker");
                             charge.img = jo.getString("img_worker");
-                        }else {
+                        }else if (jo.getString("type").equals("1")){
                             charge.stage = jo.getString("level_title");
                             charge.subject = jo.getString("subject_title");
                             charge.name = jo.getString("firstname_teacher") + " " + jo.getString("lastname_teacher");

@@ -112,7 +112,7 @@ View v ;
                         charge.type = jo.getString("type");
                         if (jo.getString("type").equals("0")){
                             charge.sertype = jo.getString("title_job");
-                        }else {
+                        }else if (jo.getString("type").equals("1")){
                             charge.stage = jo.getString("level_title");
                             charge.subject = jo.getString("subject_title");
                         }

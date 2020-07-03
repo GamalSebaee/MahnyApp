@@ -16,6 +16,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:hardwareAccelerated="true"
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -37,12 +38,18 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
+            android:name=".Activity.phase2.ads.ActivityAdsContent"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Transparent"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".Activity.ClientloginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".Activity.phase2.login.OtherloginActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".Activity.ClientregActivity"
@@ -59,6 +66,16 @@
         <activity
             android:name=".Activity.WorkerregActivity"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name=".Activity.phase2.login.ProviderRegActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activity.phase2.login.ProviderCompleteRegActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <meta-data

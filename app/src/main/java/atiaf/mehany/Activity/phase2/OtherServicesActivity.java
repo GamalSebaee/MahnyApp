@@ -33,6 +33,7 @@ import atiaf.mehany.Activity.phase2.adapter.CustomSpinnerAdapter;
 import atiaf.mehany.Activity.phase2.adapter.ServicesAdapter;
 import atiaf.mehany.Data.FormInputModel;
 import atiaf.mehany.Data.Gdata;
+import atiaf.mehany.Data.GeneralModel;
 import atiaf.mehany.Data.OptionModel;
 import atiaf.mehany.Data.ServiceModel;
 import atiaf.mehany.Data.ServicesResponse;
@@ -295,7 +296,8 @@ public class OtherServicesActivity extends BaseActivity {
                 @Override
                 public void ResponseSuccess(Object data) {
                     progressDialog.dismiss();
-                    Toast.makeText(OtherServicesActivity.this, "done", Toast.LENGTH_SHORT).show();
+                    GeneralModel generalModel= (GeneralModel) data;
+                    Toast.makeText(OtherServicesActivity.this, ""+generalModel.getMsg(), Toast.LENGTH_SHORT).show();
                 }
 
                 @Override

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MahnyApp.iml" filepath="$PROJECT_DIR$/.idea/modules/MahnyApp.iml" group="MahnyApp" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MahnyApp-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MahnyApp-app.iml" group="MahnyApp/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="mehany/app" />
       <module fileurl="file://$PROJECT_DIR$/mehany.iml" filepath="$PROJECT_DIR$/mehany.iml" group="mehany" />
     </modules>
