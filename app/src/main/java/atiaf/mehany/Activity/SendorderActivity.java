@@ -88,6 +88,8 @@ import java.util.Map;
 
 import atiaf.mehany.Activity.phase2.OtherServicesActivity;
 import atiaf.mehany.Activity.phase2.ads.ActivityAdsContent;
+import atiaf.mehany.Activity.phase2.places.ActivityAllPlaces;
+import atiaf.mehany.Activity.phase2.teams.ActivityAllTeams;
 import atiaf.mehany.Customecalss.TextViewWithFont;
 import atiaf.mehany.Data.Country;
 import atiaf.mehany.Data.Gdata;
@@ -127,6 +129,7 @@ public class SendorderActivity extends FragmentActivity implements
     CircleImageView img;
     TextViewWithFont name, email, login, reg;
     String rt = "1";
+    LinearLayout lin1PlaceReservation,lin1CreateOwnTeam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +148,8 @@ public class SendorderActivity extends FragmentActivity implements
         senorder = (TextViewWithFont) findViewById(R.id.sendorder);
         view = (TextViewWithFont) findViewById(R.id.view);
         lin = (LinearLayout) findViewById(R.id.lin);
+        lin1PlaceReservation = (LinearLayout) findViewById(R.id.lin1_place_reservation);
+        lin1CreateOwnTeam = (LinearLayout) findViewById(R.id.lin1_create_own_team);
         lin1 = (LinearLayout) findViewById(R.id.lin1);
         lin_services = (LinearLayout) findViewById(R.id.lin_services);
         linsearch = (LinearLayout) findViewById(R.id.linsearch);
@@ -156,6 +161,14 @@ public class SendorderActivity extends FragmentActivity implements
         spintech = (Spinner) findViewById(R.id.spintech);
         details = (EditText) findViewById(R.id.details);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        lin1PlaceReservation.setOnClickListener(view1 -> {
+            Intent intent=new Intent(this, ActivityAllPlaces.class);
+            startActivity(intent);
+        });
+        lin1CreateOwnTeam.setOnClickListener(view1 -> {
+            Intent intent=new Intent(this, ActivityAllTeams.class);
+            startActivity(intent);
+        });
 
         lin.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -163,5 +163,23 @@
     <string name="more_login">Other</string>
     <string name="other_login">Other Login</string>
     <string name="provider_txt">Provider</string>
+    <string name="menu_place_reservation">Reserve a stadium</string>
+    <string name="menu_create_own_team">Build Own Team</string>
+    <string name="no_data_found">"No Data Found "</string>
+    <string name="all_places">All Stadiums</string>
+    <string name="place_title">Place Title</string>
+    <string name="place_name">Name</string>
+    <string name="address">Address</string>
+    <string name="note">Notes</string>
+    <string name="view_coordinates">View Coordinates</string>
+    <string name="book_now">Book Now</string>
+    <string name="name_txt">Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="select_date">Select Date</string>
+    <string name="number_players">Players Number</string>
+    <string name="number_hours">Reservation Hour</string>
+    <string name="stadium_here">stadium is here</string>
+    <string name="stadium_details">Stadium Details</string>
+    <string name="all_teams">All Teams</string>
 
 </resources>

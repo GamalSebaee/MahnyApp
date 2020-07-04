@@ -21,11 +21,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.phase2.OtherServicesActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
+        <activity android:name=".Activity.phase2.places.ActivityAllPlaces"
+            android:theme="@style/AppThemeNoActionBar"/>
+        <activity android:name=".Activity.phase2.places.ActivityPlaceDetails"
+            android:theme="@style/AppThemeNoActionBar"/>
+        <activity android:name=".Activity.phase2.teams.ActivityAllTeams"
+            android:theme="@style/AppThemeNoActionBar"/>
 
-        </activity>
         <activity android:name=".Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

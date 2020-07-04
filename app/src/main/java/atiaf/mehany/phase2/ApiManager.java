@@ -19,6 +19,7 @@ import atiaf.mehany.phase2.response.LoginBody;
 import atiaf.mehany.phase2.response.LoginResponse;
 import atiaf.mehany.phase2.response.PlaceDetailsResponse;
 import atiaf.mehany.phase2.response.PlacesResponse;
+import atiaf.mehany.phase2.response.TeamDetailsResponse;
 import atiaf.mehany.phase2.response.TeamsResponse;
 import atiaf.mehany.phase2.response.TypesResponse;
 import retrofit2.Call;
@@ -128,6 +129,25 @@ public class ApiManager {
             }
         });
     }
+   public void getTeamDetails(String placeId,String userId,final ApiCallBack apiCallBack){
+        apiClient.getTeamDetails(placeId,userId,Gdata.getAppLang()).enqueue(new Callback<TeamDetailsResponse>() {
+            @Override
+            public void onResponse(Call<TeamDetailsResponse> call, Response<TeamDetailsResponse> response) {
+           GeneralModel generalModel=response.body();
+                if(generalModel != null && generalModel.success){
+                    apiCallBack.ResponseSuccess(response.body());
+                }else{
+                    apiCallBack.ResponseFail(Objects.requireNonNull(generalModel).getError());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<TeamDetailsResponse> call, Throwable t) {
+                apiCallBack.ResponseFail(t.getMessage());
+            }
+        });
+    }
 
    public void getAllTypes(final ApiCallBack apiCallBack){
         apiClient.getAllTypes(Gdata.getAppLang()).enqueue(new Callback<TypesResponse>() {
@@ -159,7 +179,6 @@ public class ApiManager {
                 }else{
                     apiCallBack.ResponseFail(Objects.requireNonNull(generalModel).getError());
                 }
-
             }
 
             @Override
