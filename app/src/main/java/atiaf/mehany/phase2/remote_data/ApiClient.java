@@ -28,7 +28,9 @@ public interface ApiClient {
     Call<PlacesResponse> getAllPlaces(@Query("lang") String lang);
 
     @GET("API/Main/teams")
-    Call<TeamsResponse> getAllTeams(@Query("lang") String lang);
+    Call<TeamsResponse> getAllTeams(@Query("is_owner") int is_owner,
+                                    @Query("is_joined") int is_joined,
+                                    @Query("lang") String lang);
 
     @GET("API/Main/place")
     Call<PlaceDetailsResponse> getPlaceDetails(@Query("place_id") String place_id,

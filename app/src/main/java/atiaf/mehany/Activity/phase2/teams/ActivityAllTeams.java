@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,8 @@ public class ActivityAllTeams extends BaseActivity {
     TextViewWithFont toolbar_title;
     TextView btnBack;
     FloatingActionButton btn_create_new_team;
+    RadioGroup rg_filter_list;
+    private int isOwner=0,isJoined=0;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,6 +44,8 @@ public class ActivityAllTeams extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        isOwner=0;
+        isJoined=0;
         loadAllTeams();
     }
 
@@ -48,6 +53,7 @@ public class ActivityAllTeams extends BaseActivity {
     @Override
     public void initViews() {
 
+        rg_filter_list=findViewById(R.id.rg_filter_list);
         toolbar_title=findViewById(R.id.toolbar_title);
         btn_create_new_team=findViewById(R.id.btn_create_new_team);
         rv_all_places=findViewById(R.id.rv_all_places);
@@ -57,6 +63,7 @@ public class ActivityAllTeams extends BaseActivity {
         rv_all_places.setLayoutManager(new LinearLayoutManager(this));
         toolbar_title.setText(getResources().getString(R.string.all_teams));
         btn_create_new_team.setVisibility(View.VISIBLE);
+        rg_filter_list.setVisibility(View.VISIBLE);
         if (Locale.getDefault().getLanguage().equals("en")) {
             btnBack.setRotation(180);
         }
@@ -66,11 +73,24 @@ public class ActivityAllTeams extends BaseActivity {
             Intent intent=new Intent(this,ActivityCreateTeam.class);
             startActivity(intent);
         });
+        rg_filter_list.setOnCheckedChangeListener((radioGroup, i) -> {
+            if(i == R.id.rb_all){
+                isOwner=0;
+                isJoined=0;
+            }else if( i == R.id.rb_joined_team){
+                isOwner=0;
+                isJoined=1;
+            }else if(i == R.id.rb_my_teams){
+                isOwner=1;
+                isJoined=0;
+            }
+            loadAllTeams();
+        });
     }
 
     private void loadAllTeams() {
         progressDialog.show();
-        apiManager.getAllTeams(new ApiCallBack() {
+        apiManager.getAllTeams(isOwner,isJoined,new ApiCallBack() {
             @Override
             public void ResponseSuccess(Object data) {
                 progressDialog.hide();

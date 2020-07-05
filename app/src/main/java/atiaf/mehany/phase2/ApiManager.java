@@ -91,8 +91,8 @@ public class ApiManager {
             }
         });
     }
-   public void getAllTeams(final ApiCallBack apiCallBack){
-        apiClient.getAllTeams(Gdata.getAppLang()).enqueue(new Callback<TeamsResponse>() {
+   public void getAllTeams(int isOwner,int isJoined,final ApiCallBack apiCallBack){
+        apiClient.getAllTeams(isOwner,isJoined,Gdata.getAppLang()).enqueue(new Callback<TeamsResponse>() {
             @Override
             public void onResponse(Call<TeamsResponse> call, Response<TeamsResponse> response) {
            GeneralModel generalModel=response.body();
@@ -129,8 +129,8 @@ public class ApiManager {
             }
         });
     }
-   public void getTeamDetails(String placeId,String userId,final ApiCallBack apiCallBack){
-        apiClient.getTeamDetails(placeId,userId,Gdata.getAppLang()).enqueue(new Callback<TeamDetailsResponse>() {
+   public void getTeamDetails(String teamId,String userId,final ApiCallBack apiCallBack){
+        apiClient.getTeamDetails(teamId,userId,Gdata.getAppLang()).enqueue(new Callback<TeamDetailsResponse>() {
             @Override
             public void onResponse(Call<TeamDetailsResponse> call, Response<TeamDetailsResponse> response) {
            GeneralModel generalModel=response.body();

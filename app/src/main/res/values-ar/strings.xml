@@ -184,4 +184,6 @@
     <string name="no_members">لم ينضم أي أعضاء</string>
     <string name="create_team">انشاء فريق جديد</string>
     <string name="user_is_joined">لقد انضممت بالفعل إلى هذا الفريق</string>
+    <string name="my_teams">الفرق الخاصة بي</string>
+    <string name="joined_team">الفرق المنضم اليها</string>
 </resources>

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class ActivityAllPlaces extends BaseActivity {
     TextViewWithFont no_data_found;
     TextViewWithFont toolbar_title;
     TextView btnBack;
+    RadioGroup rg_filter_list;
     FloatingActionButton btn_create_new_team;
 
     @Override
@@ -44,10 +46,12 @@ public class ActivityAllPlaces extends BaseActivity {
         btn_create_new_team=findViewById(R.id.btn_create_new_team);
         toolbar_title=findViewById(R.id.toolbar_title);
         rv_all_places=findViewById(R.id.rv_all_places);
+        rg_filter_list=findViewById(R.id.rg_filter_list);
         no_data_found=findViewById(R.id.no_data_found);
         btnBack=findViewById(R.id.btnBack);
         no_data_found.setVisibility(View.GONE);
         btn_create_new_team.setVisibility(View.GONE);
+        rg_filter_list.setVisibility(View.GONE);
         rv_all_places.setLayoutManager(new LinearLayoutManager(this));
         toolbar_title.setText(getResources().getString(R.string.all_places));
 

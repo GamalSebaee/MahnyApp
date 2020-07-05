@@ -1,12 +1,12 @@
 package atiaf.mehany.Activity.phase2.teams;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Locale;
-
 import atiaf.mehany.Activity.phase2.BaseActivity;
 import atiaf.mehany.Customecalss.TextViewWithFont;
 import atiaf.mehany.Data.Gdata;
@@ -121,6 +120,7 @@ public class ActivityTeamDetails extends BaseActivity {
     }
 
 
+    @SuppressLint("SetTextI18n")
     private void setTeamDetails(TeamDetailsModel placeDetails) {
         tv_place_title.setText(placeDetails.getName());
         tv_address_title.setText(placeDetails.getAddress());
@@ -139,7 +139,6 @@ public class ActivityTeamDetails extends BaseActivity {
             tv_team_joiners_empty.setVisibility(View.VISIBLE);
             rv_team_joiners.setVisibility(View.GONE);
         }
-        placeDetails.setIs_joined("0");
         if(placeDetails.getIs_joined() != null && placeDetails.getIs_joined().equals("1")){
             tv_book_now.setVisibility(View.GONE);
             tv_user_is_joined_label.setVisibility(View.VISIBLE);
@@ -168,7 +167,6 @@ public class ActivityTeamDetails extends BaseActivity {
                 Toast.makeText(ActivityTeamDetails.this, ""+generalModel.getMsg(), Toast.LENGTH_SHORT).show();
                 resetReservationForm();
                 loadPlaceDetails();
-
             }
 
             @Override
