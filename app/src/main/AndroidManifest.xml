@@ -29,6 +29,10 @@
             android:theme="@style/AppThemeNoActionBar"/>
         <activity android:name=".Activity.phase2.teams.ActivityAllTeams"
             android:theme="@style/AppThemeNoActionBar"/>
+        <activity android:name=".Activity.phase2.teams.ActivityTeamDetails"
+            android:theme="@style/AppThemeNoActionBar"/>
+        <activity android:name=".Activity.phase2.teams.ActivityCreateTeam"
+            android:theme="@style/AppThemeNoActionBar"/>
 
         <activity android:name=".Activity.SplashActivity">
             <intent-filter>

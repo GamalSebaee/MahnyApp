@@ -177,5 +177,11 @@
     <string name="number_hours">عدد ساعات الحجز</string>
     <string name="stadium_here">الملعب هنا</string>
     <string name="stadium_details">تافصيل الملعب</string>
-    <string name="all_teams">All Teams</string>
+    <string name="all_teams">كل الفرق</string>
+    <string name="team_details">تفاصيل الفريق</string>
+    <string name="join_now">طلب اشتراك</string>
+    <string name="team_joiners"> * أعضاء الفريق</string>
+    <string name="no_members">لم ينضم أي أعضاء</string>
+    <string name="create_team">انشاء فريق جديد</string>
+    <string name="user_is_joined">لقد انضممت بالفعل إلى هذا الفريق</string>
 </resources>

@@ -58,6 +58,10 @@ public interface ApiClient {
     Call<GeneralModel> createTeam(@Query("lang") String lang, @FieldMap HashMap<String,String> orderBody);
 
     @FormUrlEncoded
+    @POST("API/Main/joinTeam")
+    Call<GeneralModel> joinTeam(@Query("lang") String lang, @FieldMap HashMap<String,String> orderBody);
+
+    @FormUrlEncoded
     @POST("API/Main/bookingPlace")
     Call<GeneralModel> bookingPlace(@Query("lang") String lang, @FieldMap HashMap<String,String> orderBody);
 

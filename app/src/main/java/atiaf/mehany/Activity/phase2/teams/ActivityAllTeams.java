@@ -1,6 +1,7 @@
 package atiaf.mehany.Activity.phase2.teams;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -16,11 +17,9 @@ import java.util.List;
 import java.util.Locale;
 
 import atiaf.mehany.Activity.phase2.BaseActivity;
-import atiaf.mehany.Activity.phase2.places.PlacesAdapter;
 import atiaf.mehany.Customecalss.TextViewWithFont;
 import atiaf.mehany.R;
 import atiaf.mehany.phase2.remote_data.ApiCallBack;
-import atiaf.mehany.phase2.response.PlaceDetailsModel;
 import atiaf.mehany.phase2.response.TeamDetailsModel;
 import atiaf.mehany.phase2.response.TeamsResponse;
 
@@ -37,6 +36,12 @@ public class ActivityAllTeams extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
         initViews();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadAllTeams();
     }
 
     @SuppressLint("RestrictedApi")
@@ -56,10 +61,14 @@ public class ActivityAllTeams extends BaseActivity {
             btnBack.setRotation(180);
         }
         btnBack.setOnClickListener((View view) -> super.onBackPressed());
-        loadAllPlaces();
+
+        btn_create_new_team.setOnClickListener(view -> {
+            Intent intent=new Intent(this,ActivityCreateTeam.class);
+            startActivity(intent);
+        });
     }
 
-    private void loadAllPlaces() {
+    private void loadAllTeams() {
         progressDialog.show();
         apiManager.getAllTeams(new ApiCallBack() {
             @Override
@@ -88,9 +97,20 @@ public class ActivityAllTeams extends BaseActivity {
 
     private void setTeamsAdapter(List<TeamDetailsModel> allPlaces) {
         TeamsAdapter placesAdapter=new TeamsAdapter(allPlaces, serviceModel -> {
-
+            Intent intent=new Intent(this,ActivityTeamDetails.class);
+            intent.putExtra("team_id",""+serviceModel.getTeamId());
+            startActivity(intent);
         });
         rv_all_places.setAdapter(placesAdapter);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK){
+            if(requestCode == 150){
+                loadAllTeams();
+            }
+        }
+    }
 }

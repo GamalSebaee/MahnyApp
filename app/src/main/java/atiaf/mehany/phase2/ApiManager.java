@@ -206,6 +206,25 @@ public class ApiManager {
             }
         });
     }
+   public void joinTeam(HashMap<String,String> orderBody,final ApiCallBack apiCallBack){
+        apiClient.joinTeam(Gdata.getAppLang(),orderBody).enqueue(new Callback<GeneralModel>() {
+            @Override
+            public void onResponse(Call<GeneralModel> call, Response<GeneralModel> response) {
+                GeneralModel generalModel=response.body();
+                if(generalModel != null && generalModel.success){
+                    apiCallBack.ResponseSuccess(response.body());
+                }else{
+                    apiCallBack.ResponseFail(Objects.requireNonNull(generalModel).getError());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<GeneralModel> call, Throwable t) {
+                apiCallBack.ResponseFail(t.getMessage());
+            }
+        });
+    }
    public void bookingPlace(HashMap<String,String> orderBody,final ApiCallBack apiCallBack){
         apiClient.bookingPlace(Gdata.getAppLang(),orderBody).enqueue(new Callback<GeneralModel>() {
             @Override

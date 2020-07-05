@@ -181,5 +181,11 @@
     <string name="stadium_here">stadium is here</string>
     <string name="stadium_details">Stadium Details</string>
     <string name="all_teams">All Teams</string>
+    <string name="team_details">Team Details</string>
+    <string name="join_now">Join Now</string>
+    <string name="team_joiners">* Team Members</string>
+    <string name="no_members">No Members Joins</string>
+    <string name="create_team">Create New Team</string>
+    <string name="user_is_joined">You already joined to this team</string>
 
 </resources>
