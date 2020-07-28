@@ -110,6 +110,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:visibility="gone"
                         android:id="@+id/lin"
                         android:orientation="vertical">
                         <LinearLayout
@@ -152,6 +153,7 @@
                     <TextView
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
+                        android:visibility="gone"
                         android:background="@color/color_gray2"/>
                     <LinearLayout
                         android:layout_width="0dp"
@@ -256,10 +258,10 @@
                     android:layout_weight="1">
                     <include android:layout_height="match_parent"
                         android:layout_width="match_parent"
-                        layout="@layout/teacher"></include>
+                        layout="@layout/teacher"/>
                     <include android:layout_height="match_parent"
                         android:layout_width="match_parent"
-                        layout="@layout/technical"></include>
+                        layout="@layout/technical"/>
                 </FrameLayout>
             </LinearLayout>
             <FrameLayout

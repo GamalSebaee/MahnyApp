@@ -170,33 +170,37 @@ public class SendorderActivity extends FragmentActivity implements
             startActivity(intent);
         });
 
-        lin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rt = "1";
-                linteacher.setVisibility(View.VISIBLE);
-                lintechnical.setVisibility(View.GONE);
-                txt.setTextColor(Color.parseColor("#0070ba"));
-                txt1.setTextColor(Color.parseColor("#99000000"));
-                t1.setBackgroundColor(Color.parseColor("#0070ba"));
-                t2.setBackgroundColor(Color.parseColor("#f2f2f2"));
-                icon.setBackgroundResource(R.drawable.ic_teacher_2);
-                icon1.setBackgroundResource(R.drawable.ic_worker_1);
-            }
+        rt = "2";
+        lintechnical.setVisibility(View.VISIBLE);
+        linteacher.setVisibility(View.GONE);
+        txt1.setTextColor(Color.parseColor("#0070ba"));
+        txt.setTextColor(Color.parseColor("#99000000"));
+        t2.setBackgroundColor(Color.parseColor("#0070ba"));
+        t1.setBackgroundColor(Color.parseColor("#f2f2f2"));
+        icon.setBackgroundResource(R.drawable.ic_teacher_1);
+        icon1.setBackgroundResource(R.drawable.ic_worker_2);
+
+        lin.setOnClickListener(v -> {
+           /* rt = "1";
+            linteacher.setVisibility(View.VISIBLE);
+            lintechnical.setVisibility(View.GONE);
+            txt.setTextColor(Color.parseColor("#0070ba"));
+            txt1.setTextColor(Color.parseColor("#99000000"));
+            t1.setBackgroundColor(Color.parseColor("#0070ba"));
+            t2.setBackgroundColor(Color.parseColor("#f2f2f2"));
+            icon.setBackgroundResource(R.drawable.ic_teacher_2);
+            icon1.setBackgroundResource(R.drawable.ic_worker_1);*/
         });
-        lin1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                rt = "2";
-                lintechnical.setVisibility(View.VISIBLE);
-                linteacher.setVisibility(View.GONE);
-                txt1.setTextColor(Color.parseColor("#0070ba"));
-                txt.setTextColor(Color.parseColor("#99000000"));
-                t2.setBackgroundColor(Color.parseColor("#0070ba"));
-                t1.setBackgroundColor(Color.parseColor("#f2f2f2"));
-                icon.setBackgroundResource(R.drawable.ic_teacher_1);
-                icon1.setBackgroundResource(R.drawable.ic_worker_2);
-            }
+        lin1.setOnClickListener(v -> {
+            rt = "2";
+            lintechnical.setVisibility(View.VISIBLE);
+            linteacher.setVisibility(View.GONE);
+            txt1.setTextColor(Color.parseColor("#0070ba"));
+            txt.setTextColor(Color.parseColor("#99000000"));
+            t2.setBackgroundColor(Color.parseColor("#0070ba"));
+            t1.setBackgroundColor(Color.parseColor("#f2f2f2"));
+            icon.setBackgroundResource(R.drawable.ic_teacher_1);
+            icon1.setBackgroundResource(R.drawable.ic_worker_2);
         });
         lin_services.setOnClickListener(view -> {
 
