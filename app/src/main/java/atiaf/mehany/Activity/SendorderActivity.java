@@ -33,6 +33,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -68,6 +70,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.gson.Gson;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -83,20 +86,27 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import atiaf.mehany.Activity.phase2.BaseActivity;
 import atiaf.mehany.Activity.phase2.OtherServicesActivity;
+import atiaf.mehany.Activity.phase2.adapter.ServicesAdapter;
+import atiaf.mehany.Activity.phase2.adapter.ServicesGridAdapter;
 import atiaf.mehany.Activity.phase2.ads.ActivityAdsContent;
 import atiaf.mehany.Activity.phase2.places.ActivityAllPlaces;
 import atiaf.mehany.Activity.phase2.teams.ActivityAllTeams;
 import atiaf.mehany.Customecalss.TextViewWithFont;
 import atiaf.mehany.Data.Country;
 import atiaf.mehany.Data.Gdata;
+import atiaf.mehany.Data.ServiceModel;
+import atiaf.mehany.Data.ServicesResponse;
 import atiaf.mehany.R;
+import atiaf.mehany.phase2.remote_data.ApiCallBack;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SendorderActivity extends FragmentActivity implements
+public class SendorderActivity extends BaseActivity implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener, OnMapReadyCallback,
@@ -130,37 +140,38 @@ public class SendorderActivity extends FragmentActivity implements
     TextViewWithFont name, email, login, reg;
     String rt = "1";
     LinearLayout lin1PlaceReservation,lin1CreateOwnTeam;
-
+    RecyclerView rvServicesList;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sendorder);
 
         startAdsContent();
-        menu = (TextView) findViewById(R.id.menu);
-        icon = (TextView) findViewById(R.id.icon);
-        icon1 = (TextView) findViewById(R.id.icon1);
-        t1 = (TextView) findViewById(R.id.t1);
-        t2 = (TextView) findViewById(R.id.t2);
-        loc = (TextViewWithFont) findViewById(R.id.loc);
-        txt = (TextViewWithFont) findViewById(R.id.txt);
-        txt1 = (TextViewWithFont) findViewById(R.id.txt1);
-        senorder = (TextViewWithFont) findViewById(R.id.sendorder);
-        view = (TextViewWithFont) findViewById(R.id.view);
-        lin = (LinearLayout) findViewById(R.id.lin);
-        lin1PlaceReservation = (LinearLayout) findViewById(R.id.lin1_place_reservation);
-        lin1CreateOwnTeam = (LinearLayout) findViewById(R.id.lin1_create_own_team);
-        lin1 = (LinearLayout) findViewById(R.id.lin1);
-        lin_services = (LinearLayout) findViewById(R.id.lin_services);
-        linsearch = (LinearLayout) findViewById(R.id.linsearch);
-        linsuccess = (LinearLayout) findViewById(R.id.linsuccess);
-        linteacher = (LinearLayout) findViewById(R.id.linteacher);
-        lintechnical = (LinearLayout) findViewById(R.id.lintechbical);
-        spin = (Spinner) findViewById(R.id.spin);
-        spin1 = (Spinner) findViewById(R.id.spin1);
-        spintech = (Spinner) findViewById(R.id.spintech);
-        details = (EditText) findViewById(R.id.details);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        rvServicesList =  findViewById(R.id.rv_services_list);
+        menu =  findViewById(R.id.menu);
+        icon =  findViewById(R.id.icon);
+        icon1 =  findViewById(R.id.icon1);
+        t1 =  findViewById(R.id.t1);
+        t2 =  findViewById(R.id.t2);
+        loc =  findViewById(R.id.loc);
+        txt =  findViewById(R.id.txt);
+        txt1 =  findViewById(R.id.txt1);
+        senorder =  findViewById(R.id.sendorder);
+        view =  findViewById(R.id.view);
+        lin =  findViewById(R.id.lin);
+        lin1PlaceReservation =  findViewById(R.id.lin1_place_reservation);
+        lin1CreateOwnTeam =  findViewById(R.id.lin1_create_own_team);
+        lin1 =  findViewById(R.id.lin1);
+        lin_services =  findViewById(R.id.lin_services);
+        linsearch =  findViewById(R.id.linsearch);
+        linsuccess =  findViewById(R.id.linsuccess);
+        linteacher =  findViewById(R.id.linteacher);
+        lintechnical =  findViewById(R.id.lintechbical);
+        spin =  findViewById(R.id.spin);
+        spin1 =  findViewById(R.id.spin1);
+        spintech =  findViewById(R.id.spintech);
+        details =  findViewById(R.id.details);
+        drawerLayout =  findViewById(R.id.drawer_layout);
         lin1PlaceReservation.setOnClickListener(view1 -> {
             Intent intent=new Intent(this, ActivityAllPlaces.class);
             startActivity(intent);
@@ -169,19 +180,20 @@ public class SendorderActivity extends FragmentActivity implements
             Intent intent=new Intent(this, ActivityAllTeams.class);
             startActivity(intent);
         });
+        getAllServices();
 
-        rt = "2";
-        lintechnical.setVisibility(View.VISIBLE);
+       // rt = "1";
+        lintechnical.setVisibility(View.GONE);
         linteacher.setVisibility(View.GONE);
-        txt1.setTextColor(Color.parseColor("#0070ba"));
-        txt.setTextColor(Color.parseColor("#99000000"));
-        t2.setBackgroundColor(Color.parseColor("#0070ba"));
-        t1.setBackgroundColor(Color.parseColor("#f2f2f2"));
-        icon.setBackgroundResource(R.drawable.ic_teacher_1);
-        icon1.setBackgroundResource(R.drawable.ic_worker_2);
+       // txt1.setTextColor(Color.parseColor("#99000000"));
+        //txt.setTextColor(Color.parseColor("#0070ba"));
+        //t2.setBackgroundColor(Color.parseColor("#f2f2f2"));
+        //t1.setBackgroundColor(Color.parseColor("#0070ba"));
+        //icon.setBackgroundResource(R.drawable.ic_teacher_2);
+        //icon1.setBackgroundResource(R.drawable.ic_worker_1);*/
 
         lin.setOnClickListener(v -> {
-           /* rt = "1";
+            rt = "1";
             linteacher.setVisibility(View.VISIBLE);
             lintechnical.setVisibility(View.GONE);
             txt.setTextColor(Color.parseColor("#0070ba"));
@@ -189,7 +201,7 @@ public class SendorderActivity extends FragmentActivity implements
             t1.setBackgroundColor(Color.parseColor("#0070ba"));
             t2.setBackgroundColor(Color.parseColor("#f2f2f2"));
             icon.setBackgroundResource(R.drawable.ic_teacher_2);
-            icon1.setBackgroundResource(R.drawable.ic_worker_1);*/
+            icon1.setBackgroundResource(R.drawable.ic_worker_1);
         });
         lin1.setOnClickListener(v -> {
             rt = "2";
@@ -261,14 +273,14 @@ public class SendorderActivity extends FragmentActivity implements
             t.setGravity(Gravity.CENTER, 0, 0);
             t.show();
         }
-        img = (CircleImageView) findViewById(R.id.img);
-        name = (TextViewWithFont) findViewById(R.id.name);
-        final LinearLayout lin11 = (LinearLayout) findViewById(R.id.lin11);
-        final LinearLayout lin2 = (LinearLayout) findViewById(R.id.lin2);
-        final LinearLayout lin3 = (LinearLayout) findViewById(R.id.lin3);
-        final LinearLayout lin4 = (LinearLayout) findViewById(R.id.lin4);
-        final LinearLayout lin5 = (LinearLayout) findViewById(R.id.lin5);
-        final LinearLayout lin6 = (LinearLayout) findViewById(R.id.lin6);
+        img =  findViewById(R.id.img);
+        name =  findViewById(R.id.name);
+        final LinearLayout lin11 =  findViewById(R.id.lin11);
+        final LinearLayout lin2 =  findViewById(R.id.lin2);
+        final LinearLayout lin3 =  findViewById(R.id.lin3);
+        final LinearLayout lin4 =  findViewById(R.id.lin4);
+        final LinearLayout lin5 =  findViewById(R.id.lin5);
+        final LinearLayout lin6 =  findViewById(R.id.lin6);
         name.setText(Gdata.user_fname + " " + Gdata.user_lname);
 
         if (Gdata.user_img != null && Gdata.user_img.equals("")) {
@@ -290,107 +302,79 @@ public class SendorderActivity extends FragmentActivity implements
             startActivity(i);
             drawerLayout.closeDrawers();
         });
-        lin2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), ClientsettingActivity.class);
-                startActivity(i);
-                drawerLayout.closeDrawers();
-            }
+        lin2.setOnClickListener(view -> {
+            Intent i = new Intent(getApplicationContext(), ClientsettingActivity.class);
+            startActivity(i);
+            drawerLayout.closeDrawers();
         });
-        lin3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), ClientcontactusActivity.class);
-                startActivity(i);
-                drawerLayout.closeDrawers();
-            }
+        lin3.setOnClickListener(view -> {
+            Intent i = new Intent(getApplicationContext(), ClientcontactusActivity.class);
+            startActivity(i);
+            drawerLayout.closeDrawers();
         });
-        lin4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), ClientaboutappActivity.class);
-                startActivity(i);
-                drawerLayout.closeDrawers();
-            }
+        lin4.setOnClickListener(view -> {
+            Intent i = new Intent(getApplicationContext(), ClientaboutappActivity.class);
+            startActivity(i);
+            drawerLayout.closeDrawers();
         });
-        lin5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), ClientuseappActivity.class);
-                startActivity(i);
-                drawerLayout.closeDrawers();
-            }
+        lin5.setOnClickListener(view -> {
+            Intent i = new Intent(getApplicationContext(), ClientuseappActivity.class);
+            startActivity(i);
+            drawerLayout.closeDrawers();
         });
-        lin6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.closeDrawers();
-            }
-        });
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
-        senorder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (rt.equals("1")) {
-                    if (stage.equals("") || study.equals("")) {
-                        Handler handler = new Handler(Looper.getMainLooper());
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast t = null;
-                                t = Toast.makeText(getApplicationContext(), getString(R.string.tr), Toast.LENGTH_LONG);
-                                t.setGravity(Gravity.CENTER, 0, 0);
-                                t.show();
-
-                            }
-                        });
-                    } else {
-                        if (isNetworkAvailable()) {
-                            sendstages();
-                        } else {
-                            Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+        lin6.setOnClickListener(view -> drawerLayout.closeDrawers());
+        menu.setOnClickListener(view -> drawerLayout.openDrawer(GravityCompat.START));
+        senorder.setOnClickListener(v -> {
+            if (rt.equals("1")) {
+                if (stage.equals("") || study.equals("")) {
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast t = null;
+                            t = Toast.makeText(getApplicationContext(), getString(R.string.tr), Toast.LENGTH_LONG);
                             t.setGravity(Gravity.CENTER, 0, 0);
                             t.show();
+
                         }
+                    });
+                } else {
+                    if (isNetworkAvailable()) {
+                        sendstages();
+                    } else {
+                        Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+                        t.setGravity(Gravity.CENTER, 0, 0);
+                        t.show();
                     }
-                } else if (rt.equals("2")) {
-                    if (jobid.equals("") || details.getText().toString().trim().equals("")) {
-                        Handler handler = new Handler(Looper.getMainLooper());
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast t = null;
-                                t = Toast.makeText(getApplicationContext(), getString(R.string.tr), Toast.LENGTH_LONG);
-                                t.setGravity(Gravity.CENTER, 0, 0);
-                                t.show();
-
-                            }
-                        });
-                    } else {
-                        if (isNetworkAvailable()) {
-                            sendLognRequest();
-                        } else {
-                            Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+                }
+            } else if (rt.equals("2")) {
+                if (jobid.equals("") || details.getText().toString().trim().equals("")) {
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast t = null;
+                            t = Toast.makeText(getApplicationContext(), getString(R.string.tr), Toast.LENGTH_LONG);
                             t.setGravity(Gravity.CENTER, 0, 0);
                             t.show();
+
                         }
+                    });
+                } else {
+                    if (isNetworkAvailable()) {
+                        sendLognRequest();
+                    } else {
+                        Toast t = Toast.makeText(getApplicationContext(), getString(R.string.inte), Toast.LENGTH_LONG);
+                        t.setGravity(Gravity.CENTER, 0, 0);
+                        t.show();
                     }
                 }
             }
         });
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ClientordertabActivity.class);
-                startActivity(i);
-                finish();
-            }
+        view.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), ClientordertabActivity.class);
+            startActivity(i);
+            finish();
         });
         Gdata.refreshedToken = FirebaseInstanceId.getInstance().getToken();
         try {
@@ -400,6 +384,55 @@ public class SendorderActivity extends FragmentActivity implements
         } catch (NullPointerException e) {
 
         }
+    }
+
+    @Override
+    public void initViews() {
+
+    }
+
+    private void getAllServices() {
+            progressDialog.show();
+            apiManager.getAllServices(new ApiCallBack() {
+                @Override
+                public void ResponseSuccess(Object data) {
+                    progressDialog.dismiss();
+                    ServicesResponse servicesResponse = (ServicesResponse) data;
+                    List<ServiceModel> allServices = servicesResponse.getData();
+                    rvServicesList.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
+                    ServiceModel teacher = new ServiceModel();
+                    teacher.setId(-1);
+                    teacher.setFormInputs(null);
+                    teacher.setIcon(null);
+                    teacher.setName(null);
+                    teacher.setSelected(false);
+                    teacher.setTitle(getResources().getString(R.string.main4));
+                    ServiceModel tech = new ServiceModel();
+                    tech.setId(-2);
+                    tech.setFormInputs(null);
+                    tech.setIcon(null);
+                    tech.setName(null);
+                    tech.setSelected(false);
+                    tech.setTitle(getResources().getString(R.string.main5));
+                    allServices.add(0,teacher);
+                    allServices.add(1,tech);
+                    ServicesGridAdapter servicesAdapter = new ServicesGridAdapter(allServices, serviceModel -> {
+                        Intent intent = new Intent(getApplicationContext(), OtherServicesActivity.class);
+                        intent.putExtra("lat", "" + lat);
+                        intent.putExtra("lng", "" + lon);
+                        intent.putExtra("selected_service_model", new Gson().toJson(serviceModel));
+                        startActivity(intent);
+                    });
+                    rvServicesList.setAdapter(servicesAdapter);
+
+                }
+
+                @Override
+                public void ResponseFail(Object data) {
+                    progressDialog.dismiss();
+                    Toast.makeText(SendorderActivity.this, "" + data, Toast.LENGTH_SHORT).show();
+                }
+            });
     }
 
     private void startAdsContent() {

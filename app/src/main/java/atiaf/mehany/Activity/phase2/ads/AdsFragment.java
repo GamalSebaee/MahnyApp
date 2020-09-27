@@ -42,18 +42,21 @@ public class AdsFragment extends BaseFragment {
     }
 
     private void loadAllAds() {
-        progressDialog.show();
+        if(progressDialog != null){
+            progressDialog.show();
+        }
+
         apiManager.getAllAds(new ApiCallBack() {
             @Override
             public void ResponseSuccess(Object data) {
-                progressDialog.hide();
+                progressDialog.dismiss();
                 AdsResponse adsResponse = (AdsResponse) data;
                 setAdsData(adsResponse.getAdsData());
             }
 
             @Override
             public void ResponseFail(Object data) {
-                progressDialog.hide();
+                progressDialog.dismiss();
                 Toast.makeText(requireActivity(), "" + data, Toast.LENGTH_SHORT).show();
             }
         });

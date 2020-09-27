@@ -19,6 +19,7 @@
         android:hardwareAccelerated="true"
         android:largeHeap="true"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.phase2.OtherServicesActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>

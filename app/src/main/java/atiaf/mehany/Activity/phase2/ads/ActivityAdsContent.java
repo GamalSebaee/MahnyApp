@@ -22,6 +22,6 @@ public class ActivityAdsContent extends BaseActivity {
     @Override
     public void initViews() {
         iv_close = findViewById(R.id.iv_close);
-        iv_close.setOnClickListener(view -> this.finish());
+        iv_close.setOnClickListener(view -> super.onBackPressed());
     }
 }

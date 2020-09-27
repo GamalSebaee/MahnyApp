@@ -15,6 +15,9 @@ public class ServiceModel {
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("icon")
+    @Expose
+    private String icon;
     @SerializedName("form_inputs")
     @Expose
     private List<FormInputModel> formInputs = null;
@@ -55,6 +58,14 @@ public class ServiceModel {
 
     public List<FormInputModel> getFormInputs() {
         return formInputs;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
     public void setFormInputs(List<FormInputModel> formInputs) {

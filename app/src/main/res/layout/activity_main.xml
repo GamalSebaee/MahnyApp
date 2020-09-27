@@ -63,13 +63,11 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="20dp"
-                android:visibility="gone"
                 android:layout_height="wrap_content" />
             <LinearLayout
                 android:id="@+id/lin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:layout_weight="1"
                 android:orientation="vertical">
                 <FrameLayout

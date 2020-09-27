@@ -189,5 +189,6 @@
     <string name="user_is_joined">You already joined to this team</string>
     <string name="my_teams">My Teams</string>
     <string name="joined_team">Joined</string>
+    <string name="enter_form_data">Enter Following Data</string>
 
 </resources>

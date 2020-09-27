@@ -12,6 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_white">
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -101,6 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:visibility="gone"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -110,7 +113,6 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:visibility="gone"
                         android:id="@+id/lin"
                         android:orientation="vertical">
                         <LinearLayout
@@ -266,6 +268,7 @@
             </LinearLayout>
             <FrameLayout
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="50dp">
                 <atiaf.mehany.Customecalss.TextViewWithFont
                     android:layout_width="match_parent"
@@ -318,15 +321,17 @@
         </LinearLayout>
         <include android:layout_height="match_parent"
             android:layout_width="match_parent"
-            layout="@layout/success"></include>
+            layout="@layout/success"/>
+        <include android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="200dp"
+            layout="@layout/home_screen_menu"/>
     </FrameLayout>
   <include android:layout_height="match_parent"
       android:layout_width="match_parent"
       layout="@layout/menu"
-      android:visibility="gone"
       android:gravity="start"
-      android:layout_gravity="start"
-      ></include>
+      android:layout_gravity="start" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -186,4 +186,5 @@
     <string name="user_is_joined">لقد انضممت بالفعل إلى هذا الفريق</string>
     <string name="my_teams">الفرق الخاصة بي</string>
     <string name="joined_team">الفرق المنضم اليها</string>
+    <string name="enter_form_data">أدخل البيانات التالية</string>
 </resources>
