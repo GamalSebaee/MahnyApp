@@ -1,5 +1,6 @@
 package atiaf.mehany.Activity.phase2.ads;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +9,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import atiaf.mehany.Activity.phase2.BaseFragment;
 import atiaf.mehany.R;
 import atiaf.mehany.phase2.remote_data.ApiCallBack;
@@ -62,6 +61,7 @@ public class AdsFragment extends BaseFragment {
         });
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private void setAdsData(AdsData adsData) {
         if (adsData.getBody() != null) {
             WebSettings webSettings = wvAdsContent.getSettings();
